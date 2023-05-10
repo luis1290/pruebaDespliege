@@ -1,7 +1,10 @@
 // importamos express 
 const express = require('express');
 const db = require('./utils/database');
-const Users = require('./models/users.model')
+const Users = require('./models/users.model');
+require('dotenv').config();
+
+const PORT = process.env.PORT || 8000;
 
 
 db.authenticate()//es una funion asincrono
@@ -115,7 +118,9 @@ app.put('/users/:id', async (req, res) => {
 })
 // fin updat usuario
 
+
+
 //dejar escuchando el servidor
-app.listen(8000, () => {
-  console.log("servidor escuchando en el pto 8000")
+app.listen(PORT, () => {
+  console.log(`servidor escuchando en el pto ${PORT}`);
 })
